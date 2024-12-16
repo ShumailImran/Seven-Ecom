@@ -90,8 +90,14 @@ function Login() {
         placeholder="Password"
         required
       />
-      <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p className="cursor-pointer">Forgot your password?</p>
+      <div
+        className={`w-full flex ${
+          currentState === "Sign Up" ? "justify-end" : "justify-between"
+        } text-sm mt-[-8px]`}
+      >
+        {currentState === "Login" && (
+          <p className="cursor-pointer">Forgot your password?</p>
+        )}
         {currentState === "Login" ? (
           <p
             className="cursor-pointer"
@@ -108,7 +114,8 @@ function Login() {
           </p>
         )}
       </div>
-      <button className="bg-black text-white font-light px-8 py-2 mt-4 ">
+
+      <button className="bg-black text-white font-light px-3 py-2 mt-4 w-full ">
         {currentState === "Login" ? "Sign In" : "Sign Up"}
       </button>
     </form>

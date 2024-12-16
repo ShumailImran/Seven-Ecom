@@ -17,6 +17,10 @@ function RelatedProducts({ category, subCategory }) {
       setRelated(ProductsCopy.slice(0, 5));
     }
   }, [products]);
+
+  const handleProductClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <div className="my-24">
       <div className="text-center text-3xl py-2">
@@ -30,6 +34,7 @@ function RelatedProducts({ category, subCategory }) {
             name={item.name}
             price={item.price}
             image={item.image}
+            onClick={handleProductClick}
           />
         ))}
       </div>

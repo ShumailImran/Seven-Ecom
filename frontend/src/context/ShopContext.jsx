@@ -13,8 +13,82 @@ function ShopProvider({ children }) {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const [token, setToken] = useState("");
   const navigate = useNavigate();
+
+  // Wishlist Add Product
+  const addToWishlist = async (itemId) => {
+    if (wishlist.includes(itemId)) {
+      toast.error("Product already in wishlist");
+      return;
+    }
+
+    const updatedWishlist = [...wishlist, itemId];
+    setWishlist(updatedWishlist);
+
+    if (token) {
+      try {
+        await axios.post(
+          backendUrl + "/api/wishlist/add",
+          {
+            itemId,
+          },
+          {
+            headers: { token },
+          }
+        );
+        toast.success("Product added to wishlist");
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  // Wishlist Remove Product
+  const removeFromWishlist = async (itemId) => {
+    const updatedWishlist = wishlist.filter((id) => id !== itemId);
+    setWishlist(updatedWishlist);
+
+    if (token) {
+      try {
+        await axios.post(
+          backendUrl + "/api/wishlist/remove",
+          {
+            itemId,
+          },
+          {
+            headers: { token },
+          }
+        );
+        toast.success("Product removed from wishlist");
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  // FetchWishlist
+
+  const fetchWishlist = async () => {
+    if (token) {
+      try {
+        const response = await axios.get(backendUrl + "/api/wishlist/get", {
+          headers: { token },
+        });
+        if (response.data.success) {
+          setWishlist(response.data.wishlist);
+        } else {
+          toast.error(response.data.message);
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
 
   const addToCart = async (itemId, size) => {
     if (!size) {
@@ -146,7 +220,10 @@ function ShopProvider({ children }) {
 
   useEffect(() => {
     getProductsData();
-  }, []);
+    if (token) {
+      fetchWishlist();
+    }
+  }, [token]);
 
   useEffect(() => {
     if (!token && localStorage.getItem("token")) {
@@ -165,6 +242,10 @@ function ShopProvider({ children }) {
     setShowSearch,
     cartItems,
     setCartItems,
+    wishlist,
+    addToWishlist,
+    removeFromWishlist,
+    fetchWishlist,
     addToCart,
     getCartCount,
     updateQuantity,

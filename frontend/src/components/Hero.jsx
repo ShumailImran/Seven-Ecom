@@ -19,7 +19,7 @@ function Hero() {
         </div>
       </div>
       {/* HERO RIGHT SIDE */}
-      <img className="w-full sm:w-1/2" src={assets.hero_img} alt="" />
+      <img className="w-full sm:w-1/2 h-auto" src={assets.hero_img} alt="" />
     </div>
   );
 }
