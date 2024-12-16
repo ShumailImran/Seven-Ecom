@@ -8,8 +8,8 @@ function Verify() {
   const { navigate, token, setCartItems, backendUrl } = useShop();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const success = searchParams.getAll("success");
-  const orderId = searchParams.getAll("orderId");
+  const success = searchParams.get("success");
+  const orderId = searchParams.get("orderId");
 
   const verifyPayment = async () => {
     try {

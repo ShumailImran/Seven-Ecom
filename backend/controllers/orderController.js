@@ -4,7 +4,7 @@ import Stripe from "stripe";
 
 // GLOBAL VARIABLES
 const currency = "usd";
-const deliveryCharge = 5;
+const deliveryCharge = 10;
 
 // GATEWAY INITIALIZE
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -95,7 +95,7 @@ const placeOrderStripe = async (req, res) => {
 
 // VERIFY STRIPE PAYMENT
 const verifyStripe = async (req, res) => {
-  const { userId, orderId, success } = req.body;
+  const { userId, success, orderId } = req.body;
 
   try {
     if (success === "true") {
