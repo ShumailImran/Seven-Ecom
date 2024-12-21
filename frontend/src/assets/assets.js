@@ -76,6 +76,14 @@ import cross_icon from "./cross_icon.png";
 import hero_duplicate from "./hero_duplicate.png";
 import second_hero from "./second_hero.png";
 import sale from "./sale.png";
+import menGrid from "./Men_grid.jpg";
+import smMenGrid from "./smMenGrid.jpg";
+import womenGrid from "./Women_grid.jpg";
+import smWomenGrid from "./smWomenGrid.jpg";
+import kidsGrid from "./Kids_grid.jpg";
+import smKidsGrid from "./smKidsGrid.jpg";
+import hero from "./hero.jpg";
+import smHero from "./smHero.jpg";
 
 export const assets = {
   logo,
@@ -100,6 +108,14 @@ export const assets = {
   razorpay_logo,
   stripe_logo,
   cross_icon,
+  menGrid,
+  womenGrid,
+  kidsGrid,
+  smMenGrid,
+  smWomenGrid,
+  smKidsGrid,
+  hero,
+  smHero,
 };
 
 export const products = [

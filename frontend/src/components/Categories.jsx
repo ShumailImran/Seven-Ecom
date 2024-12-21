@@ -1,50 +1,73 @@
 import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 function Categories() {
   return (
-    <div className="my-12 px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
-        {/* Item 1 */}
-        <div className="h-auto md:h-[90vh] w-full border rounded-lg overflow-hidden shadow-lg flex flex-col justify-between p-4">
-          <img
-            src="https://via.placeholder.com/300"
-            alt="Image 1"
-            className="w-full h-2/3 object-cover rounded"
-          />
-          <div className="text-center mt-4">
-            <button className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-              View More
-            </button>
+    <div className="mt-2">
+      <div className="grid grid-rows-1 md:grid-cols-3  gap-2">
+        {/* Men */}
+        <Link to="/collection/men">
+          <div>
+            <div className="relative">
+              <img
+                className="w-full h-auto md:hidden"
+                src={assets.smMenGrid}
+                alt=""
+              />
+              <img
+                className="w-full h-auto hidden md:block"
+                src={assets.menGrid}
+                alt=""
+              />
+              <button className=" w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-10 py-3 bg-gray-300 text-gray-600 font-bold whitespace-nowrap">
+                SHOP MEN
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
 
-        {/* Item 2 */}
-        <div className="h-auto md:h-[90vh] w-full border rounded-lg overflow-hidden shadow-lg flex flex-col justify-between p-4">
-          <img
-            src="https://via.placeholder.com/300"
-            alt="Image 2"
-            className="w-full h-2/3 object-cover rounded"
-          />
-          <div className="text-center mt-4">
-            <button className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600">
-              Learn More
-            </button>
+        {/* Kids */}
+        <Link to="/collection/kids">
+          <div>
+            <div className="relative">
+              <img
+                className="w-full h-auto md:hidden"
+                src={assets.smKidsGrid}
+                alt=""
+              />
+              <img
+                className="w-full h-auto hidden md:block"
+                src={assets.kidsGrid}
+                alt=""
+              />
+              <button className="w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-10 py-3 bg-gray-300 text-gray-600 font-bold whitespace-nowrap">
+                SHOP KIDS
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
 
-        {/* Item 3 */}
-        <div className="h-auto md:h-[90vh] w-full border rounded-lg overflow-hidden shadow-lg flex flex-col justify-between p-4">
-          <img
-            src="https://via.placeholder.com/300"
-            alt="Image 3"
-            className="w-full h-2/3 object-cover rounded"
-          />
-          <div className="text-center mt-4">
-            <button className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600">
-              Buy Now
-            </button>
+        {/* Women */}
+        <Link to="/collection/women">
+          <div>
+            <div className="relative">
+              <img
+                className="w-full h-auto md:hidden"
+                src={assets.smWomenGrid}
+                alt=""
+              />
+
+              <img
+                className="w-full h-auto hidden md:block"
+                src={assets.womenGrid}
+                alt=""
+              />
+              <button className="w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-10 py-3 bg-gray-300 text-gray-600 font-bold whitespace-nowrap">
+                SHOP WOMEN
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
