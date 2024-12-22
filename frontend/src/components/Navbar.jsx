@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
-  const [closing, setClosing] = useState(false); // Track if the sidebar is closing
+  const [closing, setClosing] = useState(false);
 
   const {
     setShowSearch,
@@ -46,7 +46,7 @@ function Navbar() {
   }, [visible]);
 
   return (
-    <div className="flex items-center justify-between py-5 font-medium z-100 ">
+    <div className="flex items-center justify-between py-5 font-medium z-100 px-4 lg:px-8">
       <div className="flex items-center gap-6">
         <img
           onClick={() => setVisible(true)}
@@ -125,7 +125,7 @@ function Navbar() {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between px-4 sm:px-[5vw] md:px-[7vw] lg:px-[6vw] md:justify-start">
+          <div className="flex items-center justify-between px-4 lg:px-8 md:justify-start">
             <div
               onClick={handleCloseSidebar} // Trigger close with animation
               className="flex items-center gap-6 py-5"

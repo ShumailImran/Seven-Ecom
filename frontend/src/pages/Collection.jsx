@@ -76,7 +76,7 @@ function Collection({ defaultCategory, subCategory: defaultSubCategory }) {
   }, [sortType]);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
+    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t px-2">
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4 ">
           <Title

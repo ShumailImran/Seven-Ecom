@@ -13,14 +13,9 @@ function BestSeller() {
   }, [products]);
 
   return (
-    <div className="my-10">
-      <div className="text-center py-8 text-3xl">
+    <div className="my-2 px-2">
+      <div className="text-center py-4 text-3xl">
         <Title text1={"BEST"} text2={"SELLERS"} />
-        <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-          adipisci, expedita officiis omnis consectetur quisquam reiciendis et
-          ipsa.
-        </p>
       </div>
 
       {/* RENDERING PRODUCTS */}

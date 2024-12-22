@@ -84,6 +84,11 @@ import kidsGrid from "./Kids_grid.jpg";
 import smKidsGrid from "./smKidsGrid.jpg";
 import hero from "./hero.jpg";
 import smHero from "./smHero.jpg";
+import carousel from "./carousel.jpg";
+import smCarousel from "./smCarousel.jpg";
+import smCarousel1 from "./smCarousel1.jpg";
+import carousel2 from "./carousel2.jpg";
+import smCarousel2 from "./smCarousel2.jpg";
 
 export const assets = {
   logo,
@@ -116,6 +121,11 @@ export const assets = {
   smKidsGrid,
   hero,
   smHero,
+  carousel,
+  smCarousel,
+  carousel2,
+  smCarousel2,
+  smCarousel1,
 };
 
 export const products = [

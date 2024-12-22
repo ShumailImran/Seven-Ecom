@@ -34,7 +34,7 @@ function Sidebar({ setVisible }) {
   return (
     <>
       <div
-        className={`px-[8vw] sm:px-[10vw] lg:px-[6vw] flex items-center justify-start gap-8 border-t border-b border-black py-2`}
+        className={`px-14 lg:px-[70px] flex items-center justify-start gap-8 border-t border-b border-black py-2`}
       >
         {["men", "women", "kids"].map((selectedItem) => (
           <button
@@ -54,14 +54,14 @@ function Sidebar({ setVisible }) {
       {/* New Arrivals Button */}
       <button
         onClick={() => setShowNewArrivals(!showNewArrivals)} // Toggle visibility of New Arrivals section
-        className="px-[8vw] sm:px-[10vw] lg:px-[6vw] mt-10 text-lg font-medium"
+        className="px-14 lg:px-[70px] mt-10 text-lg font-medium"
       >
         New Arrivals
       </button>
 
       {/* Show Links for the Selected Category if New Arrivals is toggled on */}
       {showNewArrivals && (
-        <div className="flex flex-col gap-2 mt-2 px-[8vw] sm:px-[10vw] lg:px-[6vw] text-gray-500">
+        <div className="flex flex-col gap-2 mt-2 px-14 lg:px-[70px] text-gray-500">
           {links[selected].map((link) => (
             <Link
               to={link.to}
@@ -74,7 +74,7 @@ function Sidebar({ setVisible }) {
           ))}
         </div>
       )}
-      <div className="px-[8vw] sm:px-[10vw] lg:px-[6vw] mt-8">
+      <div className="px-14 lg:px-[70px] mt-8">
         <Link
           to={"/orders"}
           onClick={() => setVisible(false)}

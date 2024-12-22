@@ -1,22 +1,22 @@
-// import Carousel from "../components/Carousel";
+import Carousel from "../components/Carousel";
 import Hero from "../components/Hero";
-// import BestSeller from "../components/BestSeller";
 import Categories from "../components/Categories";
-// import LatestCollection from "../components/LatestCollection";
+import BestSeller from "../components/BestSeller";
+import LatestCollection from "../components/LatestCollection";
+import OurPolicy from "../components/OurPolicy";
 // import NewsletterBox from "../components/NewsletterBox";
-// import OurPolicy from "../components/OurPolicy";
 
 function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
-      {/* <Carousel /> */}
+      <Carousel />
       <Categories />
-
-      {/* <LatestCollection />
-      <BestSeller />
+      <LatestCollection />
       <OurPolicy />
-      <NewsletterBox /> */}
+      <BestSeller />
+
+      {/* <NewsletterBox /> */}
     </div>
   );
 }

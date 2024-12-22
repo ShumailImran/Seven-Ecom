@@ -14,7 +14,7 @@ function ProductItem({ id, image, name, price, onClick }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="overflow-hidden">
+      <div className="overflow-hidden px-2">
         <img
           className={`transition ease-in-out ${
             hovered && image[1] ? "hover:scale-110" : "scale-100"

@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 function Footer() {
   return (
     <div>
-      <div className="grid gap-4 grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-4 text-sm my-10 mt-40">
+      <div className="grid gap-4 grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-4 text-sm my-10 mt-20 px-4 lg:px-8">
         <div className="row-span-1 col-span-2 md:col-span-2">
           <img src={assets.logo} alt="" className="mb-5 w-32" />
           <p className="w-full md:w-2/3">
