@@ -5,7 +5,7 @@ import Title from "../components/Title";
 function Contact() {
   return (
     <div>
-      <div className="text-center text-2xl pt-10 border-t px-2">
+      <div className="text-center text-2xl pt-10 border-t px-4 lg:px-8">
         <Title text1={"CONTACT"} text2={"US"} />
       </div>
 

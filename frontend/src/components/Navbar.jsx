@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useShop } from "../context/ShopContext";
 import Sidebar from "./Sidebar";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [isFixed, setIsFixed] = useState(false); // Track if Navbar should be fixed
+  const location = useLocation(); // Track route changes
 
   const {
     setShowSearch,
@@ -32,6 +34,27 @@ function Navbar() {
     }, 300);
   };
 
+  // Scroll to top on navigation
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  // Track scroll position to toggle fixed Navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   // ALLOW NO SCROLL WHEN SIDEBAR IS OPEN
   useEffect(() => {
     if (visible) {
@@ -46,7 +69,13 @@ function Navbar() {
   }, [visible]);
 
   return (
-    <div className="flex items-center justify-between py-5 font-medium z-100 px-4 lg:px-8">
+    <div
+      className={`${
+        isFixed
+          ? "fixed top-0 left-0 w-full bg-white shadow-md z-50"
+          : "relative"
+      } flex items-center justify-between py-5 font-medium px-4 lg:px-8 transition-all`}
+    >
       <div className="flex items-center gap-6">
         <img
           onClick={() => setVisible(true)}
@@ -59,7 +88,7 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* RIGHT SIDE NAV MAIN*/}
+      {/* RIGHT SIDE NAV MAIN */}
       <div className="flex items-center gap-4 sm:gap-6">
         <img
           onClick={() => setShowSearch(true)}
@@ -74,7 +103,6 @@ function Navbar() {
             alt=""
             className="w-5 cursor-pointer"
           />
-          {/* Profile Dropdown */}
           {token && (
             <div className="group-hover:block absolute hidden dropdown-menu right-0 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
@@ -103,7 +131,7 @@ function Navbar() {
         </Link>
       </div>
 
-      {/*---------- SIDEBAR ----------  */}
+      {/* SIDEBAR */}
       {visible && (
         <div
           className="fixed inset-0 bg-black/40 z-40 backdrop-blur-sm"
@@ -127,7 +155,7 @@ function Navbar() {
         >
           <div className="flex items-center justify-between px-4 lg:px-8 md:justify-start">
             <div
-              onClick={handleCloseSidebar} // Trigger close with animation
+              onClick={handleCloseSidebar}
               className="flex items-center gap-6 py-5"
             >
               <img
@@ -139,57 +167,7 @@ function Navbar() {
                 <img src={assets.logo} alt="logo" className="w-36" />
               </Link>
             </div>
-
-            {/* Right side nav in sidebar */}
-            <div className="flex items-center gap-4 sm:gap-6 md:hidden">
-              <img
-                onClick={() => setShowSearch(true)}
-                src={assets.search_icon}
-                alt="search"
-                className="w-5 cursor-pointer"
-              />
-              <div className="group relative">
-                <img
-                  onClick={() => (token ? null : navigate("/login"))}
-                  src={assets.profile_icon}
-                  alt=""
-                  className="w-5 cursor-pointer"
-                />
-                {/* Profile Dropdown */}
-                {token && (
-                  <div className="group-hover:block absolute hidden dropdown-menu right-0 pt-4">
-                    <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-                      <p className="cursor-pointer hover:text-black">
-                        My Profile
-                      </p>
-                      <p
-                        onClick={() => navigate("/orders")}
-                        className="cursor-pointer hover:text-black"
-                      >
-                        Orders
-                      </p>
-                      <p
-                        onClick={logout}
-                        className="cursor-pointer hover:text-black"
-                      >
-                        Logout
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <Link to="cart" className="relative">
-                <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
-                <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-                  {getCartCount()}
-                </p>
-              </Link>
-              <Link to="wishlist" className="relative">
-                <img src={assets.heart_icon} className="w-4 min-w-6" alt="" />
-              </Link>
-            </div>
           </div>
-
           <Sidebar visible={visible} setVisible={setVisible} />
         </div>
       </div>

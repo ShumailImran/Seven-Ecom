@@ -19,7 +19,7 @@ function Categories() {
                 src={assets.menGrid}
                 alt=""
               />
-              <button className="w-36 sm:w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-4 py-2 sm:px-10 sm:py-3 bg-gray-300 text-gray-600 font-bold whitespace-nowrap">
+              <button className="w-36 sm:w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-4 py-2 sm:px-10 sm:py-3 bg-white border border-gray-300 text-gray-600 font-bold whitespace-nowrap">
                 SHOP MEN
               </button>
             </div>
@@ -40,7 +40,7 @@ function Categories() {
                 src={assets.kidsGrid}
                 alt=""
               />
-              <button className="w-36 sm:w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-4 py-2 sm:px-10 sm:py-3 bg-gray-300 text-gray-600 font-bold whitespace-nowrap">
+              <button className="w-36 sm:w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-4 py-2 sm:px-10 sm:py-3 bg-white border border-gray-300 text-gray-600 font-bold whitespace-nowrap">
                 SHOP KIDS
               </button>
             </div>
@@ -62,7 +62,7 @@ function Categories() {
                 src={assets.womenGrid}
                 alt=""
               />
-              <button className="w-36 sm:w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-4 py-2 sm:px-10 sm:py-3 bg-gray-300 text-gray-600 font-bold whitespace-nowrap">
+              <button className="w-36 sm:w-60 absolute top-[75%] sm:top-[82%] left-1/2 transform -translate-x-1/2  px-4 py-2 sm:px-10 sm:py-3 bg-white border border-gray-300 text-gray-600 font-bold whitespace-nowrap">
                 SHOP WOMEN
               </button>
             </div>

@@ -52,11 +52,12 @@ function Product() {
   }, [productId, products]);
 
   return productData ? (
-    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100 px-4 ">
+    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[6vw] ">
       {/* PRODUCT DATA */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         {/* PRODUCT IMAGES */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
+          {/* LIST IMAGES */}
           <div className="flex flex-row sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
               <img
@@ -64,12 +65,14 @@ function Product() {
                 src={item}
                 key={index}
                 alt="product"
-                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
+                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 object-cover cursor-pointer"
               />
             ))}
           </div>
+
+          {/* MAIN IMAGE */}
           <div
-            className="relative w-full sm:w-[80%] overflow-hidden sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-full"
+            className=" w-full sm:w-[80%] overflow-hidden sm:h-[300px] md:h-[350px] lg:h-[100%] "
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsZoomed(true)}
             onMouseLeave={() => setIsZoomed(false)}
@@ -93,7 +96,7 @@ function Product() {
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
 
           {/* WHISHLIST */}
-          <div className="flex items-center gap-1 mt-2 ">
+          <div className="flex items-center gap-1 mt-4 ">
             <button onClick={handleWishlist}>
               {isWishlisted ? "❤️ Remove from Wishlist" : "🤍 Add to Wishlist"}
             </button>
@@ -106,6 +109,7 @@ function Product() {
           <p className="mt-5 text-gray-500 md:w-4/5">
             {productData.description}
           </p>
+
           <div className="flex flex-col gap-4 my-8">
             <p>Select Size</p>
             <div className="flex gap-2">
@@ -122,6 +126,7 @@ function Product() {
               ))}
             </div>
           </div>
+
           <button
             onClick={() => addToCart(productData._id, size)}
             className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"

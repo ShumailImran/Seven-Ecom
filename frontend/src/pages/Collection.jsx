@@ -76,7 +76,7 @@ function Collection({ defaultCategory, subCategory: defaultSubCategory }) {
   }, [sortType]);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t px-2">
+    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t px-4 lg:px-8">
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4 ">
           <Title
@@ -95,7 +95,7 @@ function Collection({ defaultCategory, subCategory: defaultSubCategory }) {
           </select>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-5">
           {filterProducts.length > 0 ? (
             filterProducts.map((item, index) => (
               <ProductItem

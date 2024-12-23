@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-// import { products } from "../assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -123,6 +122,7 @@ function ShopProvider({ children }) {
             headers: { token },
           }
         );
+        toast.success("Product added to cart");
       } catch (error) {
         console.log(error);
         toast.error(error.message);

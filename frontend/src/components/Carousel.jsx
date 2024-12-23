@@ -17,8 +17,6 @@ const Carousel = () => {
   const autoSlide = true;
   const autoSlideInterval = 3000;
 
-  const prev = () =>
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
   const next = () =>
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
@@ -29,7 +27,7 @@ const Carousel = () => {
   }, [curr, autoSlide, autoSlideInterval]);
 
   return (
-    <div className="relative h-[120vh] md:h-[50vh] xl:h-[80vh] my-2 overflow-hidden">
+    <div className="relative h-[120vh] md:h-[50vh] xl:h-[90vh] my-2 overflow-hidden">
       <div className="relative w-full h-full">
         {/* Slides */}
         {slides.map((src, index) => (
@@ -50,22 +48,6 @@ const Carousel = () => {
           </div>
         ))}
       </div>
-
-      {/* Navigation Arrows */}
-      {/* <div className="absolute inset-0 flex items-center justify-between px-4">
-        <button
-          onClick={prev}
-          className="bg-black/50 text-white p-2 rounded-full focus:outline-none z-20"
-        >
-          ←
-        </button>
-        <button
-          onClick={next}
-          className="bg-black/50 text-white p-2 rounded-full focus:outline-none z-20"
-        >
-          →
-        </button>
-      </div> */}
 
       {/* Dots */}
       <div className="absolute bottom-4 flex justify-center w-full gap-2 z-20">
