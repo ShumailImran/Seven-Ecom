@@ -37,7 +37,7 @@ function ShopProvider({ children }) {
             headers: { token },
           }
         );
-        toast.success("Product added to wishlist");
+        // toast.success("Product added to wishlist");
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -121,7 +121,7 @@ function ShopProvider({ children }) {
             headers: { token },
           }
         );
-        toast.success("Product added to cart");
+        // toast.success("Product added to cart");
       } catch (error) {
         console.log(error);
         toast.error(error.message);

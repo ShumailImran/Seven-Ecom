@@ -77,21 +77,34 @@ function Cart() {
                     </div>
                   </div>
                 </div>
-                <input
-                  onChange={(e) =>
-                    e.target.value === "" || e.target.value === "0"
-                      ? null
-                      : updateQuantity(
-                          item._id,
-                          item.size,
-                          Number(e.target.value)
-                        )
-                  }
-                  type="number"
-                  min={1}
-                  defaultValue={item.quantity}
-                  className="border max-w-10 sm:max-w-20"
-                />
+
+                {/* COUNTER */}
+                <div className="flex items-center border max-w-fit">
+                  {/* Minus Button */}
+                  <button
+                    className="px-2 text-gray-800 hover:bg-gray-200"
+                    onClick={() =>
+                      item.quantity > 1
+                        ? updateQuantity(item._id, item.size, item.quantity - 1)
+                        : null
+                    }
+                  >
+                    −
+                  </button>
+
+                  {/* Quantity Display */}
+                  <span className="px-4 text-center">{item.quantity}</span>
+
+                  {/* Plus Button */}
+                  <button
+                    className="px-2 text-gray-800 hover:bg-gray-200"
+                    onClick={() =>
+                      updateQuantity(item._id, item.size, item.quantity + 1)
+                    }
+                  >
+                    +
+                  </button>
+                </div>
                 <img
                   onClick={() => updateQuantity(item._id, item.size, 0)}
                   src={assets.bin_icon}

@@ -26,3 +26,26 @@
     color: #fff;
   }
 }
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.product-image {
+  max-width: 100%;
+}
+
+.product-info {
+  margin-top: 16px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

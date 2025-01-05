@@ -17,6 +17,7 @@ function Navbar() {
     token,
     setToken,
     setCartItems,
+    wishlist,
   } = useShop();
 
   const logout = () => {
@@ -106,7 +107,6 @@ function Navbar() {
           {token && (
             <div className="group-hover:block absolute hidden dropdown-menu right-0 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-                <p className="cursor-pointer hover:text-black">My Profile</p>
                 <p
                   onClick={() => navigate("/orders")}
                   className="cursor-pointer hover:text-black"
@@ -128,6 +128,9 @@ function Navbar() {
         </Link>
         <Link to="wishlist" className="relative">
           <img src={assets.heart_icon} className="w-4 min-w-6" alt="" />
+          {wishlist.length > 0 && (
+            <p className="absolute right-[-1px] bottom-[-2px] w-3 text-center leading-4 bg-red-500 text-white aspect-square rounded-full text-[8px]" />
+          )}
         </Link>
       </div>
 
