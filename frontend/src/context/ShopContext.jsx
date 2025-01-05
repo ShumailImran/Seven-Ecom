@@ -61,7 +61,6 @@ function ShopProvider({ children }) {
             headers: { token },
           }
         );
-        toast.success("Product removed from wishlist");
       } catch (error) {
         console.log(error);
         toast.error(error.message);

@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
   const slides = [
     {
-      large: assets.carousel2,
-      small: assets.smCarousel2,
+      large: assets.hero,
+      small: assets.smHero,
+      link: "/collection/men-winterwear",
     },
     {
       large: assets.carousel,
       small: assets.smCarousel1,
+      link: "/collection/kids",
     },
   ];
 
   const [curr, setCurr] = useState(0);
+  const navigate = useNavigate();
   const autoSlide = true;
   const autoSlideInterval = 3000;
 
@@ -40,9 +44,10 @@ const Carousel = () => {
             <picture>
               <source media="(max-width: 768px)" srcSet={src.small} />
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-pointer"
                 src={src.large}
                 alt={`Slide ${index + 1}`}
+                onClick={() => navigate(src.link)}
               />
             </picture>
           </div>

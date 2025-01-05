@@ -111,7 +111,7 @@ function PlaceOrder() {
   return (
     <form
       onSubmit={onSubmitHandler}
-      className="flex flex-col justify-between sm:flex-row gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t px-4 lg:px-8"
+      className="flex flex-col justify-around sm:flex-row gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t px-4 lg:px-8"
     >
       {/* LEFT SIDE */}
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
@@ -228,17 +228,7 @@ function PlaceOrder() {
               ></p>
               <img src={assets.stripe_logo} className="h-5 mx-4" alt="" />
             </div>
-            {/* <div
-              onClick={() => setMethod("razorpay")}
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
-            >
-              <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "razorpay" ? "bg-green-400" : ""
-                }`}
-              ></p>
-              <img src={assets.razorpay_logo} className="h-5 mx-4" alt="" />
-            </div> */}
+
             <div
               onClick={() => setMethod("cod")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
