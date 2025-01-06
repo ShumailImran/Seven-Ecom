@@ -85,7 +85,10 @@ function Navbar() {
           alt=""
         />
         <Link to="/">
-          <img src={assets.logo} alt="logo" className="w-36" />
+          <div className="flex items-center gap-1">
+            <img src="/public/favicon.ico" className="w-25" alt="" />
+            <h1 className="logo text-4xl">SEVEN</h1>
+          </div>
         </Link>
       </div>
 
@@ -105,7 +108,7 @@ function Navbar() {
             className="w-5 cursor-pointer"
           />
           {token && (
-            <div className="group-hover:block absolute hidden dropdown-menu right-0 pt-4">
+            <div className="group-hover:block absolute hidden dropdown-menu right-0 pt-4 z-50">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
                 <p
                   onClick={() => navigate("/orders")}
@@ -167,7 +170,10 @@ function Navbar() {
                 alt="close"
               />
               <Link to="/">
-                <img src={assets.logo} alt="logo" className="w-36" />
+                <div className="flex items-center gap-1">
+                  <img src="/public/favicon.ico" className="w-25" alt="" />
+                  <h1 className="logo text-4xl">SEVEN</h1>
+                </div>
               </Link>
             </div>
           </div>

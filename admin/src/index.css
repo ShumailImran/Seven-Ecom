@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -19,4 +20,11 @@ textarea {
 .active {
   background-color: #ffebf5;
   border-color: #c586a5;
+}
+
+.logo {
+  font-family: "Montserrat", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #3c1a00;
 }
