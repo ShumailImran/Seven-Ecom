@@ -13,21 +13,21 @@ function Sidebar({ setVisible }) {
   const links = {
     men: [
       { to: "/collection/men", label: "View All" },
-      { to: "/collection/men-topwear", label: "T-Shirts | Shirts" },
-      { to: "/collection/men-bottomwear", label: "Jeans | Trousers" },
-      { to: "/collection/men-winterwear", label: "Sweatshirts | Hoodies" },
+      { to: "/collection/men-topwear", label: "Shirts" },
+      { to: "/collection/men-bottomwear", label: "Bottomwear" },
+      { to: "/collection/men-winterwear", label: "Outerwear" },
     ],
     women: [
       { to: "/collection/women", label: "View All" },
-      { to: "/collection/women-topwear", label: "T-Shirts" },
-      { to: "/collection/women-bottomwear", label: "Jeans | Trousers" },
-      { to: "/collection/women-winterwear", label: "Jackets | Coats" },
+      { to: "/collection/women-topwear", label: "Tops" },
+      { to: "/collection/women-bottomwear", label: "Bottomwear" },
+      { to: "/collection/women-winterwear", label: "Outerwear" },
     ],
     kids: [
       { to: "/collection/kids", label: "View All" },
-      { to: "/collection/kids-topwear", label: "Shirts | Shackets" },
-      { to: "/collection/kids-bottomwear", label: "Jeans" },
-      { to: "/collection/kids-winterwear", label: "Sweaters" },
+      { to: "/collection/kids-topwear", label: "Kids Tops" },
+      { to: "/collection/kids-bottomwear", label: "Bottomwear" },
+      { to: "/collection/kids-winterwear", label: "Outerwear" },
     ],
   };
 

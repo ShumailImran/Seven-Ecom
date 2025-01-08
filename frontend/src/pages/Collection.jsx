@@ -81,7 +81,7 @@ function Collection({ defaultCategory, subCategory: defaultSubCategory }) {
         <div className="flex justify-between text-base sm:text-2xl mb-4 ">
           <Title
             text1={category ? category.toUpperCase() : "ALL"}
-            text2={subCategory ? subCategory.toUpperCase() : "COLLECTION"}
+            text2={"COLLECTION"}
           />
           <select
             onChange={(e) => setSortType(e.target.value)}
@@ -107,7 +107,11 @@ function Collection({ defaultCategory, subCategory: defaultSubCategory }) {
               />
             ))
           ) : (
-            <p>No products found for this category or subcategory.</p>
+            <div className="w-full h-[40vh] flex items-center justify-center col-span-full">
+              <p className="text-lg">
+                No products found for this category or subcategory.
+              </p>
+            </div>
           )}
         </div>
       </div>
