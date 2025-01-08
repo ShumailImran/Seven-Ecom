@@ -108,9 +108,7 @@ function Collection({ defaultCategory, subCategory: defaultSubCategory }) {
             ))
           ) : (
             <div className="w-full h-[40vh] flex items-center justify-center col-span-full">
-              <p className="text-lg">
-                No products found for this category or subcategory.
-              </p>
+              <p className="text-lg">No products found for this Search.</p>
             </div>
           )}
         </div>

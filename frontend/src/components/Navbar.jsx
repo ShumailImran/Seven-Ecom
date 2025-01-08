@@ -77,7 +77,7 @@ function Navbar() {
           : "relative"
       } flex items-center justify-between py-5 font-medium px-4 lg:px-8 transition-all`}
     >
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2 sm:gap-6">
         <img
           onClick={() => setVisible(true)}
           src={assets.menu_icon}

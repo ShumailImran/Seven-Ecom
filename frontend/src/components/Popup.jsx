@@ -52,7 +52,7 @@ const Popup = ({ popupVisible, setPopupVisible }) => {
 
   return (
     <div
-      className={`flex items-center justify-center sm:items-start sm:justify-end sm:pt-[81px] sm:pr-6 fixed inset-0 z-50 bg-black/80 sm:bg-inherit overflow-hidden ${
+      className={`flex items-center justify-center sm:items-start sm:justify-end sm:pt-[89px] sm:pr-6 fixed inset-0 z-50 bg-black/80 sm:bg-inherit overflow-hidden ${
         popupVisible ? "block" : "hidden"
       }`}
       onClick={() => setPopupVisible(false)}
