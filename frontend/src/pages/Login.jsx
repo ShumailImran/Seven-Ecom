@@ -8,8 +8,8 @@ function Login() {
   const { token, setToken, navigate, backendUrl } = useShop();
 
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("testuser@example.com");
+  const [password, setPassword] = useState("testuser123");
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();

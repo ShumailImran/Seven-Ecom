@@ -47,7 +47,7 @@ function Footer() {
       <div>
         <hr />
         <p className="py-5 text-sm text-center">
-          Copyright 2024 All rights reserved
+          Copyright 2025. All rights reserved
         </p>
       </div>
     </div>

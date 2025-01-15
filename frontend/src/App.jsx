@@ -18,8 +18,7 @@ import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
-    // <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[6vw]">
-    <div className="">
+    <div>
       <ToastContainer />
       <Navbar />
       <SearchBar />
