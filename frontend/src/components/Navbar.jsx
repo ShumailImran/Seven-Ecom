@@ -86,7 +86,6 @@ function Navbar() {
         />
         <Link to="/">
           <div className="flex items-center gap-1">
-            <img src="/public/favicon.ico" className="w-25" alt="" />
             <h1 className="logo text-4xl">SEVEN</h1>
           </div>
         </Link>
@@ -171,7 +170,6 @@ function Navbar() {
               />
               <Link to="/">
                 <div className="flex items-center gap-1">
-                  <img src="/public/favicon.ico" className="w-25" alt="" />
                   <h1 className="logo text-4xl">SEVEN</h1>
                 </div>
               </Link>

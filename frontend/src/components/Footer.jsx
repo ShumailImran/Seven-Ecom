@@ -7,7 +7,6 @@ function Footer() {
       <div className="grid gap-4 grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-4 text-sm my-10 mt-20 px-4 lg:px-8">
         <div className="row-span-1 col-span-2 md:col-span-2">
           <div className="flex items-center gap-1 mb-4">
-            <img src="/public/favicon.ico" className="w-25" alt="" />
             <h1 className="logo text-4xl">SEVEN</h1>
           </div>
 
