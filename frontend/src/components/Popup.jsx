@@ -7,7 +7,6 @@ const Popup = ({ popupVisible, setPopupVisible }) => {
 
   const [cartData, setCartData] = React.useState([]);
 
-  // Update cart data whenever cartItems or products change
   useEffect(() => {
     if (products.length > 0) {
       const tempData = [];
@@ -66,7 +65,7 @@ const Popup = ({ popupVisible, setPopupVisible }) => {
             SHOPPING CART
           </h2>
           <button
-            onClick={() => setPopupVisible(false)} // Close the popup
+            onClick={() => setPopupVisible(false)} 
             className="text-black text-xl"
           >
             &times;
@@ -85,7 +84,6 @@ const Popup = ({ popupVisible, setPopupVisible }) => {
                 key={index}
                 className="py-4 border-b text-gray-700 flex items-center justify-between"
               >
-                {/* Image and Product Name Section */}
                 <div className="flex items-center gap-4">
                   <img
                     src={productData.image[0]}
@@ -102,7 +100,6 @@ const Popup = ({ popupVisible, setPopupVisible }) => {
                   </div>
                 </div>
 
-                {/* Bin Icon and Price Section */}
                 <div className="flex flex-col items-end">
                   <img
                     onClick={() => updateQuantity(item._id, item.size, 0)}
@@ -110,7 +107,6 @@ const Popup = ({ popupVisible, setPopupVisible }) => {
                     className="w-4 cursor-pointer mb-6"
                     alt="remove"
                   />
-                  {/* Price (at bottom) */}
                   <p className="text-xs sm:text-sm text-gray-800">
                     {currency}
                     {productData.price}

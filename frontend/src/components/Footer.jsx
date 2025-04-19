@@ -1,4 +1,3 @@
-import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 
 function Footer() {

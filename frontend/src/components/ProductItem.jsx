@@ -12,14 +12,12 @@ function ProductItem({ id, image, name, price, onClick }) {
     >
       <div className="overflow-hidden">
         <div className="relative w-full flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105">
-          {/* Default image */}
           <img
             src={image[0]}
             alt="product"
             className="w-full transition-opacity duration-300"
           />
 
-          {/* Hover image, shown only on hover */}
           {image[1] && (
             <img
               src={image[1]}

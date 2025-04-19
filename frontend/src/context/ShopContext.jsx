@@ -16,7 +16,6 @@ function ShopProvider({ children }) {
   const [token, setToken] = useState("");
   const navigate = useNavigate();
 
-  // Wishlist Add Product
   const addToWishlist = async (itemId) => {
     if (wishlist.includes(itemId)) {
       toast.error("Product already in wishlist");
@@ -37,7 +36,6 @@ function ShopProvider({ children }) {
             headers: { token },
           }
         );
-        // toast.success("Product added to wishlist");
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -45,7 +43,6 @@ function ShopProvider({ children }) {
     }
   };
 
-  // Wishlist Remove Product
   const removeFromWishlist = async (itemId) => {
     const updatedWishlist = wishlist.filter((id) => id !== itemId);
     setWishlist(updatedWishlist);
@@ -67,8 +64,6 @@ function ShopProvider({ children }) {
       }
     }
   };
-
-  // FetchWishlist
 
   const fetchWishlist = async () => {
     if (token) {

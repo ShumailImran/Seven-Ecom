@@ -6,9 +6,8 @@ import Sidebar from "./Sidebar";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
-  const [closing, setClosing] = useState(false);
-  const [isFixed, setIsFixed] = useState(false); // Track if Navbar should be fixed
-  const location = useLocation(); // Track route changes
+  const [isFixed, setIsFixed] = useState(false);
+  const location = useLocation();
 
   const {
     setShowSearch,
@@ -27,14 +26,6 @@ function Navbar() {
     navigate("/login");
   };
 
-  const handleCloseSidebar = () => {
-    setClosing(true);
-    setTimeout(() => {
-      setVisible(false);
-      setClosing(false);
-    }, 300);
-  };
-
   // Scroll to top on navigation
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -43,27 +34,16 @@ function Navbar() {
   // Track scroll position to toggle fixed Navbar
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
+      setIsFixed(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ALLOW NO SCROLL WHEN SIDEBAR IS OPEN
+  // Disable scroll when sidebar is open
   useEffect(() => {
-    if (visible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
+    document.body.style.overflow = visible ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -82,7 +62,7 @@ function Navbar() {
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
           className="w-5 cursor-pointer"
-          alt=""
+          alt="menu"
         />
         <Link to="/">
           <div className="flex items-center gap-1">
@@ -91,7 +71,7 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* RIGHT SIDE NAV MAIN */}
+      {/* RIGHT SIDE NAV */}
       <div className="flex items-center gap-4 sm:gap-6">
         <img
           onClick={() => setShowSearch(true)}
@@ -103,7 +83,7 @@ function Navbar() {
           <img
             onClick={() => (token ? null : navigate("/login"))}
             src={assets.profile_icon}
-            alt=""
+            alt="profile"
             className="w-5 cursor-pointer"
           />
           {token && (
@@ -123,60 +103,47 @@ function Navbar() {
           )}
         </div>
         <Link to="cart" className="relative">
-          <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
+          <img src={assets.cart_icon} className="w-5 min-w-5" alt="cart" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
         </Link>
         <Link to="wishlist" className="relative">
-          <img src={assets.heart_icon} className="w-4 min-w-6" alt="" />
+          <img src={assets.heart_icon} className="w-4 min-w-6" alt="wishlist" />
           {wishlist.length > 0 && (
             <p className="absolute right-[-1px] bottom-[-2px] w-3 text-center leading-4 bg-red-500 text-white aspect-square rounded-full text-[8px]" />
           )}
         </Link>
       </div>
 
-      {/* SIDEBAR */}
       {visible && (
         <div
           className="fixed inset-0 bg-black/40 z-40 backdrop-blur-sm"
           onClick={() => setVisible(false)}
         />
       )}
+
+      {/* SIDEBAR */}
       <div
-        className={`fixed inset-0 bg-black/40 z-50 transition-opacity duration-300 ${
-          visible ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`fixed inset-y-0 left-0 z-50 w-full md:w-[450px] bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+          visible ? "translate-x-0" : "-translate-x-full"
         }`}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div
-          className={`bg-white w-full md:w-[450px] h-full shadow-lg transform transition-transform duration-300 ease-in-out ${
-            closing
-              ? "-translate-x-full"
-              : visible
-              ? "translate-x-0"
-              : "-translate-x-full"
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex items-center justify-between px-4 lg:px-8 md:justify-start">
-            <div
-              onClick={handleCloseSidebar}
-              className="flex items-center gap-6 py-5"
-            >
-              <img
-                src={assets.cross_icon}
-                className="w-4 cursor-pointer"
-                alt="close"
-              />
-              <Link to="/">
-                <div className="flex items-center gap-1">
-                  <h1 className="logo text-4xl">SEVEN</h1>
-                </div>
-              </Link>
-            </div>
+        <div className="flex items-center justify-between px-4 lg:px-8 md:justify-start">
+          <div
+            onClick={() => setVisible(false)}
+            className="flex items-center gap-6 py-5 cursor-pointer"
+          >
+            <img src={assets.cross_icon} className="w-4" alt="close" />
+            <Link to="/">
+              <div className="flex items-center gap-1">
+                <h1 className="logo text-4xl">SEVEN</h1>
+              </div>
+            </Link>
           </div>
-          <Sidebar visible={visible} setVisible={setVisible} />
         </div>
+        <Sidebar visible={visible} setVisible={setVisible} />
       </div>
     </div>
   );

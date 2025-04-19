@@ -33,7 +33,6 @@ function Cart() {
         <Title text1={"YOUR"} text2={"CART"} />
       </div>
 
-      {/* Display Cart Empty Message if Cart is Empty */}
       {cartData.length === 0 ? (
         <div className="text-center text-gray-700 text-xl py-10">
           <p>Your cart is empty!</p>
@@ -78,9 +77,7 @@ function Cart() {
                   </div>
                 </div>
 
-                {/* COUNTER */}
                 <div className="flex items-center border max-w-fit">
-                  {/* Minus Button */}
                   <button
                     className="px-2 text-gray-800 hover:bg-gray-200"
                     onClick={() =>
@@ -92,10 +89,8 @@ function Cart() {
                     −
                   </button>
 
-                  {/* Quantity Display */}
                   <span className="px-4 text-center">{item.quantity}</span>
 
-                  {/* Plus Button */}
                   <button
                     className="px-2 text-gray-800 hover:bg-gray-200"
                     onClick={() =>
@@ -117,7 +112,6 @@ function Cart() {
         </div>
       )}
 
-      {/* Display Cart Total and Checkout Button if Cart is Not Empty */}
       {cartData.length > 0 && (
         <div className="flex justify-end my-20">
           <div className="w-full sm:w-[450px]">
